@@ -11,10 +11,18 @@ app.prepare().then(() => {
     // Be sure to pass `true` as the second argument to `url.parse`.
     // This tells it to parse the query portion of the URL.
     const parsedUrl = parse(req.url, true);
+    
     res.setHeader(
       "Content-Security-Policy-Report-Only",
-      "script-src nonce-abc123"
+      "script-src 'nonce-abc123'"
     );
+
+    // Same results when enforcing the CSP rather than just reporting, and even without a nonce value in the CSP
+    // res.setHeader(
+    //   "Content-Security-Policy",
+    //   "script-src 'unsafe-inline' 'unsafe-eval' 'self' *.amazonaws.com"
+    // );
+
     handle(req, res, parsedUrl);
   }).listen(3000, (err) => {
     if (err) throw err;
