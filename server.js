@@ -17,10 +17,10 @@ app.prepare().then(() => {
       "script-src 'nonce-abc123'"
     );
 
-    // Same results when enforcing the CSP rather than just reporting, and even without a nonce value in the CSP
+    // Same results when enforcing the CSP rather than just reporting, and even with a totally bogus header value.
     // res.setHeader(
     //   "Content-Security-Policy",
-    //   "script-src 'unsafe-inline' 'unsafe-eval' 'self' *.amazonaws.com"
+    //   "foo"
     // );
 
     handle(req, res, parsedUrl);
