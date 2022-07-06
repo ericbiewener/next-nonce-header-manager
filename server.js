@@ -14,7 +14,7 @@ app.prepare().then(() => {
     
     res.setHeader(
       "Content-Security-Policy-Report-Only",
-      "script-src 'nonce-abc123'"
+      "script-src 'nonce-abc123' 'unsafe-eval'"
     );
 
     // Same results when enforcing the CSP rather than just reporting, and even with a totally bogus header value.

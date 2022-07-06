@@ -4,6 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "node server.js",
+    "clear-next-cache": "rm -rf .next",
+    "dev:clear-cache": "yarn clear-next-cache && yarn dev",
     "build": "next build",
     "start": "NODE_ENV=production node server.js"
   },
